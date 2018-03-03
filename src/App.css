@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+}
+
+.App {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "header" "markdown" "footer";
+}
+
+header {
+    grid-area: header;
+    width: 100%;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+header h2 {
+    margin: 0;
+}
+
+footer {
+    grid-area: footer;
+    width: 100%;
+    padding-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+footer a:hover, a:active, a:focus {
+ outline: none;
+}
+
+.markdown-section {
+    grid-area: markdown;
+    justify-self: stretch;
+    align-self: stretch;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "input previewer";
+}
+
+.input-markdown {
+    grid-area: input;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.output-markdown {
+    grid-area: previewer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.text-area {
+    flex-grow: 1;
+    box-sizing: content-box;
+    width: 80%;
+    margin: 0;
+    resize: none;
+}
+
+.previewer {
+    flex-grow: 1;
+    box-sizing: content-box;
+    width: 80%;
+    padding: .6rem 1.0rem;
+	border: .1rem solid #d1d1d1;
+    border-radius: .4rem;
+    overflow-y: scroll;
+}
+
+@media (max-width: 768px) {
+    .markdown-section {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "input" "previewer";
+    }
+}
